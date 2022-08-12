@@ -43,6 +43,7 @@ $config = [
             ],
         ],
         'db' => $db,
+        //'db' => require(__DIR__ . '/db.php'),
         
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -51,6 +52,11 @@ $config = [
             ],
         ],
         
+    ],
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+        ],
     ],
     'params' => $params,
 ];
