@@ -3,7 +3,9 @@
 namespace app\modules\admin\controllers;
 
 use app\models\Article;
+use app\models\ImageUpload;
 use app\models\ArticleSearch;
+use GuzzleHttp\Psr7\UploadedFile;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -133,5 +135,36 @@ class ArticleController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+    // public function actionSetImage($id)
+    // {
+    //    $model = new ImageUpload;
+    //    if(\Yii::$app->request->isPost)
+    //    {
+    //         $file = UploadedFile::getInstance($model,'image');
+    //         var_dump($file);
+    //         die;
+    //    }
+    //    return $this->render('image', ['model'=>$model]);
+    // }
+    public function actionSetImage($id)
+    {
+        //$data = Stud::find()->asArray()->all();   
+
+        $model = new ImageUpload;
+        $request = \Yii::$app->request;
+        if($request->isPost)
+        {
+            // if(($model->load($request->post)) && $model->validate())
+            // {                    
+            //     print_r($request->post['Stud']);
+            // }
+            return $this->render('image',['model'=>$model]);
+            var_dump($request);
+                   die;
+        }
+        
+            return $this->render('image',['model'=>$model]);
+        
     }
 }
